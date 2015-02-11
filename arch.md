@@ -21,5 +21,3 @@ disc so they can be rsynced by clients.
  * read command
   * keep track of which "flagged decryptable" messages have been read
   * display list of "flagged decryptable" and allow user to read them
-
-
