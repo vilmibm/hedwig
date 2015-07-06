@@ -1,0 +1,7 @@
+[package]
+name = "rcrypt"
+version = "0.1.0"
+authors = ["Branan Purvine-Riley <branan@puppetlabs.com>"]
+
+[dependencies]
+rustc-serialize = "0.3"
