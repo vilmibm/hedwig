@@ -46,12 +46,9 @@ fn calc_crc(data: &Vec<u8>) -> u32 {
 }
 
 fn read_armored(armored: String) -> HedwigResult<Vec<u8>> {
-    let parts: Vec<_> = armored.split('=').filter(|&x| ! x.is_empty()).collect();
-    if parts.len() != 2 {
-        return Err(HedwigError::Data);
-    }
-    let data_str = parts[0];
-    let crc_str = parts[1];
+    let crc_start = armored.len() - 4;
+    let data_str = &armored[0..crc_start];
+    let crc_str = &armored[crc_start..armored.len()];
     let data_bytes = try!(data_str.from_base64());
     let crc_bytes = try!(crc_str.from_base64());
     if crc_bytes.len() != 3 {
